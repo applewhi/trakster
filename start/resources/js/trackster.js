@@ -3,6 +3,7 @@ const API_KEY = '2fb57a71fac6ec22ae942500940fcb53';
 $(document).ready(function() {
   $('#search-btn').click(function() {
     Trackster.searchTracksByTitle($('#search-box').val());
+    $('#track-list').empty();
   });
 });
 
@@ -12,13 +13,18 @@ $(document).ready(function() {
 */
 Trackster.renderTracks = function(tracks) {
   tracks.forEach(function(track){
+
+    var mediumAlbumArt = track.image[1]["#text"];
     var mockTrack =
-        `<a href="https://youtu.be/eI_O5_tJ1hA"><i class="fa fa-play-circle-o col-xs-2 col-xs-offset-1"></i></a>
-          <div class="col-xs-2">Learn to Fly</div>
-          <div class="col-xs-2">Foo Fighters</div>
-          <img src=#>
-          <div class="col-xs-2">10898</div>`;
+        '<div class="row track">'+
+          '<a class="col-xs-2 col-xs-offset-1" href="' + track.URL + '><i class="fa fa-play-circle-o"></i></a>' +
+          '<div class="col-xs-2">' + track.name + '</div>' +
+          '<div class="col-xs-2">' + track.artist + '</div>' +
+          '<img class="col-xs-2" src=' + mediumAlbumArt + '>' +
+          '<div class="col-xs-2">' + track.listeners + '</div>' +
+        '</div>';
     $('#track-list').append(mockTrack);
+    console.log(track);
   });
 };
 
@@ -30,8 +36,8 @@ Trackster.searchTracksByTitle = function(title) {
   $.ajax({
     url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
     datatype: 'jsonp',
-    success: function(data){
-      console.log(data);
+    success: function(tracks){
+      Trackster.renderTracks(tracks.results.trackmatches.track);
     }
   });
 };
