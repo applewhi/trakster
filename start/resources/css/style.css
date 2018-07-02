@@ -1,0 +1,34 @@
+/*
+  Custom styles for Trackster App
+*/
+div {
+  display: block;
+}
+
+input {
+  border-radius: 19px;
+}
+
+.header {
+  padding: 2.75rem 0;
+  background-color: rgb(35,2,63);
+}
+
+.search-box {
+    margin-right: 1rem;
+}
+
+.fa-search {
+  background-color: rgb(255, 102, 204);
+  border-radius: 19px;
+}
+
+.logo {
+  font-family: Righteous;
+  font-size: 2.5rem;
+  color: rgb(255, 0, 171);
+}
+
+.title {
+  background-color: rgb(104, 0, 255);
+}
