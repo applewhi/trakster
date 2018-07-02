@@ -13,14 +13,11 @@ $(document).ready(function() {
 Trackster.renderTracks = function(tracks) {
   tracks.forEach(function(track){
     var mockTrack =
-        `<div class="row">
-          <div class="container-fluid" id="track-list">
-          <a href="https://youtu.be/eI_O5_tJ1hA"><i class="fa fa-play-circle-o col-xs-2 col-xs-offset-1"></i></a>
+        `<a href="https://youtu.be/eI_O5_tJ1hA"><i class="fa fa-play-circle-o col-xs-2 col-xs-offset-1"></i></a>
           <div class="col-xs-2">Learn to Fly</div>
           <div class="col-xs-2">Foo Fighters</div>
           <img src=#>
-          <div class="col-xs-2">10898</div>
-        </div>`;
+          <div class="col-xs-2">10898</div>`;
     $('#track-list').append(mockTrack);
   });
 };
