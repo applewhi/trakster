@@ -32,3 +32,7 @@ input {
 .title {
   background-color: rgb(104, 0, 255);
 }
+
+.attribute {
+  color: rgb(255, 255, 255);
+}
